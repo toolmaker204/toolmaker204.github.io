@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="仕事用のシンプルなTodo管理ツール。ブラウザで動くデモ付き。HTMLを無料でダウンロードできます。" />
-  <title>仕事用シンプルTodo管理ツール｜HTML無料ダウンロード</title>
-
+  <meta name="description" content="仕事用のシンプルなTodo管理ツール。ブラウザで動作。HTMLを無料でダウンロードできます。" />
+  <title>QuickTodo</title>
 
   <!-- Open Graph -->
   <meta property="og:title" content="仕事用シンプルTodo管理ツール｜HTML無料ダウンロード" />
-  <meta property="og:description" content="白ベースのモダンUI。ブラウザで動くデモと、HTML一式のダウンロードリンクを公開。" />
+  <meta property="og:description" content="白ベースのモダンUI。ブラウザで動作するTodoと、HTML一式のダウンロードリンクを公開。" />
   <meta property="og:type" content="website" />
 
   <style>
@@ -42,6 +41,7 @@
     }
     a{color:inherit}
     .container{max-width:1120px; margin:0 auto; padding:24px}
+
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
       gap:16px; padding:10px 0 24px;
@@ -55,9 +55,7 @@
       box-shadow: var(--shadow2);
     }
     .brand strong{font-size:14px; letter-spacing:.02em}
-    .nav{
-      display:flex; gap:10px; flex-wrap:wrap;
-    }
+    .nav{display:flex; gap:10px; flex-wrap:wrap;}
     .chip{
       font-size:12px; color:var(--muted);
       border:1px solid var(--line);
@@ -104,6 +102,7 @@
     .dot{width:8px;height:8px;border-radius:99px;background:var(--ok)}
     h1{margin:14px 0 10px; font-size:28px; line-height:1.2; letter-spacing:-.02em}
     .lead{color:var(--muted); margin:0 0 16px; font-size:14px; line-height:1.7}
+
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -127,6 +126,7 @@
       border-color:#0b1220;
       color:#fff;
     }
+
     .metaRow{
       display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;
       color:var(--muted); font-size:12px;
@@ -139,7 +139,7 @@
     }
     .pill b{color:var(--text); font-weight:600}
 
-    /* Ad card (above the fold, but not blocking CTA) */
+    /* Ad card */
     .adCard{
       background: rgba(255,255,255,.75);
       border: 1px dashed rgba(203,213,225,.9);
@@ -159,15 +159,12 @@
       border-radius: 14px;
       background: linear-gradient(180deg, #ffffff, #f7f8fb);
       border: 1px solid rgba(229,231,235,.95);
-      height: 250px; /* recommended responsive ad placeholder */
+      height: 250px;
       display:flex; align-items:center; justify-content:center;
       color:#94a3b8;
       font-size:12px;
       text-align:center;
       padding:10px;
-    }
-    .adHint{
-      color:var(--muted); font-size:12px; line-height:1.6;
     }
 
     .grid{
@@ -190,162 +187,28 @@
     }
     .card h2{margin:0 0 10px; font-size:16px}
     .card p{margin:0 0 10px; color:var(--muted); font-size:13px; line-height:1.7}
-    .split{
-      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
-      margin-bottom:10px;
-    }
 
-    /* Todo demo */
-    .todoWrap{
-      border:1px solid rgba(229,231,235,.95);
-      background: linear-gradient(180deg, #ffffff, #fbfcff);
-      border-radius: 16px;
-      padding:14px;
-    }
-    .todoTop{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;
-      margin-bottom:12px;
-    }
-    .todoTop .left{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
-    }
-    .stat{
-      font-size:12px; color:var(--muted);
-      padding:7px 10px; border-radius:999px;
-      border:1px solid rgba(229,231,235,.95);
-      background: rgba(255,255,255,.75);
-    }
-    .todoForm{
-      display:flex; gap:8px; flex-wrap:wrap;
-      margin-bottom:10px;
-    }
-    .input, .select{
-      height:38px;
-      border-radius: 12px;
-      border:1px solid rgba(229,231,235,.95);
-      background:#fff;
-      padding:0 12px;
-      font-size:13px;
-      outline:none;
-      transition:border-color .08s ease, box-shadow .08s ease;
-    }
-    .input{flex: 1 1 220px; min-width: 180px;}
-    .select{flex: 0 0 160px;}
-    .input:focus, .select:focus{
-      border-color: rgba(37,99,235,.45);
-      box-shadow: 0 0 0 4px rgba(37,99,235,.12);
-    }
-    .todoBtn{
-      height:38px;
-      border-radius: 12px;
-      border:1px solid rgba(37,99,235,.35);
-      background: linear-gradient(180deg, #ffffff, #f2f6ff);
-      padding:0 12px;
-      cursor:pointer;
-      font-size:13px;
-      display:inline-flex; align-items:center; gap:8px;
-      user-select:none;
-      transition: transform .08s ease, box-shadow .08s ease;
-    }
-    .todoBtn:hover{box-shadow: var(--shadow2); transform: translateY(-1px)}
-    .todoBtn:active{transform: translateY(0px)}
-    .todoBtnDanger{
-      border-color: rgba(239,68,68,.35);
-      background: linear-gradient(180deg, #ffffff, #fff1f2);
-    }
-    .todoBtnGhost{
-      border-color: rgba(229,231,235,.95);
-      background:#fff;
-    }
-
-    .filters{
-      display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 0;
-    }
-    .seg{
-      font-size:12px;
-      border:1px solid rgba(229,231,235,.95);
-      background:#fff;
-      padding:7px 10px;
-      border-radius:999px;
-      cursor:pointer;
-      color:var(--muted);
-    }
-    .seg[aria-pressed="true"]{
-      color:var(--text);
-      border-color: rgba(37,99,235,.35);
-      background: linear-gradient(180deg, #ffffff, #f2f6ff);
-    }
-
-    .list{
-      margin:12px 0 0;
+    /* Section header */
+    .sectionHead{
       display:flex;
-      flex-direction:column;
-      gap:8px;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:26px 0 12px;
     }
-    .item{
-      display:grid;
-      grid-template-columns: 22px 1fr auto;
-      gap:10px;
-      align-items:center;
-      padding:10px 10px;
-      border-radius: 14px;
-      border:1px solid rgba(229,231,235,.95);
-      background: rgba(255,255,255,.85);
+    .sectionHead h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.01em;
     }
-    .check{
-      width:18px;height:18px;border-radius:6px;border:1px solid rgba(203,213,225,.95);
-      display:flex; align-items:center; justify-content:center;
-      cursor:pointer;
-      background:#fff;
-    }
-    .check[data-done="true"]{
-      border-color: rgba(16,185,129,.45);
-      background: rgba(16,185,129,.12);
-    }
-    .title{
-      font-size:13px;
-      line-height:1.4;
-      word-break: break-word;
-    }
-    .title.done{
-      color:#94a3b8;
-      text-decoration: line-through;
-    }
-    .tag{
-      font-size:11px;
+    .sectionHead .sub{
+      margin:0;
       color:var(--muted);
-      border:1px solid rgba(229,231,235,.95);
-      background: rgba(247,248,251,.8);
-      padding:5px 8px;
-      border-radius:999px;
-      margin-left:8px;
-      white-space:nowrap;
-    }
-    .actions{
-      display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end;
-    }
-    .iconBtn{
-      border:1px solid rgba(229,231,235,.95);
-      background:#fff;
-      height:34px;
-      padding:0 10px;
-      border-radius: 11px;
-      cursor:pointer;
       font-size:12px;
-      color:var(--muted);
-    }
-    .iconBtn:hover{border-color:#cbd5e1; color:var(--text)}
-    .empty{
-      border:1px dashed rgba(203,213,225,.95);
-      background: rgba(255,255,255,.75);
-      color:#94a3b8;
-      border-radius: 14px;
-      padding:14px;
-      font-size:13px;
-      text-align:center;
     }
 
-    /* Side card blocks */
+    /* Feature list (side blocks) */
     .featureList{
       display:flex; flex-direction:column; gap:10px; margin-top:10px;
     }
@@ -369,7 +232,7 @@
     .feature strong{display:block; font-size:13px; margin:0 0 3px}
     .feature span{display:block; font-size:12px; color:var(--muted); line-height:1.6}
 
-    /* Mid-page ad (between value and download) */
+    /* Inline ad */
     .adInline{
       margin:18px 0;
       border-radius: var(--radius);
@@ -380,6 +243,84 @@
       backdrop-filter: blur(10px);
     }
     .adInline .adBox{height: 120px}
+
+    /* 機能紹介 */
+    .introGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .introGrid{grid-template-columns:1fr;}
+    }
+    .mockShot{
+      border:1px solid rgba(229,231,235,.95);
+      background: linear-gradient(180deg, #ffffff, #fbfcff);
+      border-radius: 16px;
+      padding:14px;
+      min-height: 360px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .shotBar{
+      height:12px;
+      display:flex;
+      gap:6px;
+      align-items:center;
+      color:#94a3b8;
+      font-size:11px;
+    }
+    .shotDot{
+      width:10px;height:10px;border-radius:99px;
+      border:1px solid rgba(203,213,225,.95);
+      background:#fff;
+    }
+    .shotCanvas{
+      flex:1;
+      border-radius: 14px;
+      border:1px dashed rgba(203,213,225,.95);
+      background: rgba(255,255,255,.75);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#94a3b8;
+      font-size:12px;
+      text-align:center;
+      padding:12px;
+    }
+    .cap{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    /* What's New */
+    .changelog{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:10px;
+    }
+    .logItem{
+      display:grid;
+      grid-template-columns: 90px 1fr;
+      gap:12px;
+      padding:12px;
+      border:1px solid rgba(229,231,235,.95);
+      border-radius: 16px;
+      background: rgba(255,255,255,.8);
+    }
+    .logDate{
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      padding-top:2px;
+    }
+    .logBody strong{display:block; font-size:13px; margin:0 0 3px}
+    .logBody span{display:block; font-size:12px; color:var(--muted); line-height:1.6}
 
     /* Footer */
     footer{
@@ -412,199 +353,215 @@
 <body>
   <div class="container">
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="トップへ">
+      <a class="brand" href="#top" aria-label="QuickTodo トップへ">
         <span class="logo" aria-hidden="true"></span>
-        <strong>Simple Work Todo</strong>
+        <strong>QuickTodo</strong>
       </a>
-      <nav class="nav" aria-label="ナビゲーション">
-        <a class="chip" href="#demo">デモ</a>
+      <nav class="nav" aria-label="ページ内ナビゲーション">
+        <a class="chip" href="#features">特徴</a>
+        <a class="chip" href="#intro">機能紹介</a>
+        <a class="chip" href="#whatsnew">What's New</a>
         <a class="chip" href="#download">ダウンロード</a>
-        <a class="chip" href="#howto">使い方</a>
-        <a class="chip" href="#policy">ポリシー</a>
+        <a class="chip" href="#policy">免責/プライバシー</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero">
+      <section class="hero" aria-label="ヒーロー">
         <div class="heroCard">
-          <span class="kicker"><span class="dot" aria-hidden="true"></span> 仕事用のシンプルTodo管理ツール（HTML）</span>
-          <h1>軽く、速く、迷わない。<br>作業を“今日やること”に落とす。</h1>
+          <h1>QuickTodo</h1>
           <p class="lead">
-            白ベースのモダンUI。ブラウザだけで動き、Todoは端末内に保存されます（localStorage）。
-            まずは下のデモで触って、必要ならHTML一式をダウンロードして使えます。
+            「Todo管理表への記入に時間をかけたくない」という想いから作ったツールです。<br>
+            余計な作業を減らせるようにキーボード操作だけで管理できるようにし、<br>
+            なるべくシンプルなUIにしております。
           </p>
 
           <div class="ctaRow">
-            <a class="btn btnDark" href="#download" aria-label="ダウンロードへ">
-              ↓ ダウンロードへ
+            <a class="btn btnDark" href="#download" aria-label="ダウンロード">
+              ダウンロード（Zip）
             </a>
-            <a class="btn btnPrimary" href="#demo" aria-label="デモへ">
-              <strong>▶</strong> ブラウザで試す
+            <a class="btn btnPrimary" href="#intro" aria-label="機能紹介へ">
+              <strong>機能を見る</strong>
             </a>
-            <button class="btn" id="btnScrollHowto" type="button">使い方を見る</button>
           </div>
 
           <div class="metaRow">
             <span class="pill"><b>保存</b> 端末内（クラウド送信なし）</span>
-            <span class="pill"><b>用途</b> 仕事のタスク整理</span>
+            <span class="pill"><b>用途</b> 仕事のTodo管理</span>
             <span class="pill"><b>配布</b> HTML一式ZIP</span>
           </div>
         </div>
 
-        <!-- Ad placement: above the fold but separated from primary CTA -->
         <aside class="adCard" aria-label="広告枠">
           <div class="adLabel">
             <span>スポンサーリンク</span>
             <span class="small">※審査通過後にAdSenseタグへ差し替え</span>
           </div>
-          <div class="adBox">
-            広告枠（例：レスポンシブ）<br>
-            <span class="small">ユーザー導線（デモ/DL）を邪魔しない位置</span>
-          </div>
-          <div class="adHint">
-            ポイント：ファーストビューは「価値→デモ→DL導線」を優先し、
-            広告は“視界に入るが邪魔しない”サイド配置が安定です。
-          </div>
+          <div class="adBox">広告枠（例：レスポンシブ）</div>
         </aside>
       </section>
 
+      <!-- 特徴 -->
+      <div id="features" aria-label="特徴">
+        <h2>特徴</h2>
+      </div>
       <section class="grid">
-        <section class="card" id="demo">
-          <div class="split">
-            <div>
-              <h2>デモ（このページ内で試せます）</h2>
-              <p>入力 → 追加。完了チェック、編集、削除、カテゴリ絞り込み。データはこのブラウザに保存されます。</p>
-            </div>
-            <div class="ctaRow">
-              <button class="btn" id="btnSeed" type="button">サンプル投入</button>
-              <button class="btn" id="btnExport" type="button">エクスポート</button>
-              <button class="btn todoBtnDanger" id="btnReset" type="button">全削除</button>
-            </div>
-          </div>
-
-          <div class="todoWrap" role="application" aria-label="Todoデモ">
-            <div class="todoTop">
-              <div class="left">
-                <span class="stat" id="statCount">0件</span>
-                <span class="stat" id="statDone">完了 0</span>
-                <span class="stat" title="localStorageに保存されます">保存: ON</span>
-              </div>
-              <div class="filters" aria-label="フィルター">
-                <button class="seg" data-filter="all" aria-pressed="true" type="button">すべて</button>
-                <button class="seg" data-filter="active" aria-pressed="false" type="button">未完了</button>
-                <button class="seg" data-filter="done" aria-pressed="false" type="button">完了</button>
-              </div>
-            </div>
-
-            <form class="todoForm" id="todoForm">
-              <input class="input" id="todoInput" placeholder="例）請求書の確認（17:00まで）" maxlength="80" autocomplete="off" />
-              <select class="select" id="catSelect" aria-label="カテゴリ">
-                <option value="仕事">仕事</option>
-                <option value="会議">会議</option>
-                <option value="連絡">連絡</option>
-                <option value="雑務">雑務</option>
-              </select>
-              <button class="todoBtn" type="submit">＋ 追加</button>
-              <button class="todoBtn todoBtnGhost" id="btnImport" type="button">インポート</button>
-            </form>
-
-            <div class="list" id="list"></div>
-            <div class="empty" id="empty" style="display:none;">
-              Todoがありません。上の入力欄から追加してください。
-            </div>
-
-            <p class="small" style="margin:12px 2px 0;">
-              ヒント：編集は「編集」ボタン。キーボードは <span class="kbd">Enter</span> で追加。
-            </p>
-          </div>
-
-          <!-- Mid-page ad: placed after value (demo) but before download -->
-          <div class="adInline" aria-label="広告枠（本文内）">
-            <div class="adLabel" style="margin-bottom:10px;">
-              <span>スポンサーリンク</span>
-              <span class="small">本文の切れ目に配置（体験を阻害しにくい）</span>
-            </div>
-            <div class="adBox">広告枠（例：横長 728×90 / レスポンシブ）</div>
-          </div>
-
-          <div id="download" class="split">
-            <div>
-              <h2>HTML一式をダウンロード</h2>
-              <p>
-                社内PCでも使いやすいよう、シンプルにまとめたHTML一式です。
-                ZIPを解凍して <b>index.html</b> を開けば動きます。
-              </p>
-            </div>
-            <div class="ctaRow">
-              <!-- Place your file in the same directory: todo-simple.zip -->
-              <a class="btn btnDark" href="todo-simple.zip" download aria-label="HTML一式をダウンロード">
-                ↓ todo-simple.zip をダウンロード
-              </a>
-              <a class="btn" href="#howto">導入手順を見る</a>
-            </div>
-          </div>
-
-          <div class="small" style="margin-top:8px;">
-            ※ダウンロードファイル名は運用に合わせて変更OKです（例：simple-work-todo-v1.zip）。
-          </div>
-        </section>
 
         <aside class="card">
-          <h2>このツールの特徴</h2>
-          <p>仕事で“使い続けられる”ことを優先し、最小の操作で完了できる設計にしています。</p>
-
+          <p>「効率的なTodo管理」を目指した、仕事向けのTodo管理ツールです。</p>
           <div class="featureList">
             <div class="feature">
               <div class="badge">1</div>
               <div>
-                <strong>迷わないUI</strong>
-                <span>白ベース＋余白中心。入力→追加→完了の動線を固定。</span>
+                <strong>マウス操作不要で効率的</strong>
+                <span>キーボードのみで一連の動作（Todoの追加・編集・削除）を実施可能</span>
               </div>
             </div>
             <div class="feature">
               <div class="badge">2</div>
               <div>
-                <strong>端末内保存</strong>
-                <span>localStorageで保持（外部送信しない）。作業メモ用途に強い。</span>
+              <strong>シンプルなUI</strong>
+                <span>必要な機能だけに絞り、見た瞬間に操作が分かる構成</span>
               </div>
             </div>
             <div class="feature">
               <div class="badge">3</div>
               <div>
-                <strong>エクスポート/インポート</strong>
-                <span>バックアップできるので、ブラウザ移行や復元にも対応。</span>
+                <strong>ローカル動作でセキュリティリスク低</strong>
+                <span>htmlをダウンロードしてブラウザでローカル実行　データは端末内保存で外部送信なし</span>
               </div>
             </div>
             <div class="feature">
               <div class="badge">4</div>
               <div>
-                <strong>広告位置の工夫</strong>
-                <span>導線を分断しない “サイド” と “区切り” に配置。</span>
+               <strong>エクスポート可能</strong>
+                <span>Todoの内容を出力できるため、他媒体への移行などが簡単</span>
+
               </div>
             </div>
           </div>
 
-          <div style="margin-top:14px;">
-            <h2 id="howto">導入手順（30秒）</h2>
-            <ol class="small" style="margin:8px 0 0; padding-left:18px;">
-              <li>上の「todo-simple.zip」をダウンロード</li>
-              <li>解凍して <b>index.html</b> を開く</li>
-              <li>必要ならブックマーク or 共有フォルダに置く</li>
-            </ol>
-            <p class="small" style="margin-top:10px;">
-              社内配布などで改変する場合は、ZIP内のHTMLをコピーして使ってください。
-            </p>
-          </div>
-
-          <!-- Side ad: below the key content to avoid annoyance -->
           <div class="adInline" style="margin-top:16px;">
             <div class="adLabel" style="margin-bottom:10px;">
               <span>スポンサーリンク</span>
-              <span class="small">サイド下部（離脱前に視認されやすい）</span>
+              <span class="small">サイド下部</span>
             </div>
             <div class="adBox">広告枠（例：300×250 / レスポンシブ）</div>
           </div>
         </aside>
+      </section>
+
+      <!-- 機能紹介（追加：画面イメージ＋機能説明のみ） -->
+      <section id="intro" aria-label="機能紹介">
+        <div class="sectionHead">
+          <h2>機能紹介</h2>
+        </div>
+
+        <div class="introGrid">
+          <div class="card">
+            <h2 style="margin:0 0 10px;">画面イメージ</h2>
+            <p>ここはアプリのスクリーンショットに差し替える想定です（PNG/JPG）。</p>
+
+            <div class="mockShot" aria-label="画面イメージ枠">
+              <div class="shotBar" aria-hidden="true">
+                <span class="shotDot"></span><span class="shotDot"></span><span class="shotDot"></span>
+                <span style="margin-left:8px;">QuickTodo - Screen</span>
+              </div>
+              <div class="shotCanvas">
+                画像を配置する場合：<br>
+                &lt;img src="images/screen.png" alt="QuickTodoの画面" style="width:100%;height:auto;border-radius:14px;"&gt;
+              </div>
+              <p class="cap">
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 style="margin:0 0 10px;">主な機能</h2>
+            <p>仕事で必要な操作に絞って、迷いにくい構成にしています。</p>
+
+            <div class="featureList">
+              <div class="feature">
+                <div class="badge">1</div>
+                <div>
+                  <strong>Todo追加・編集・削除</strong>
+                  <span>必要な操作を最短導線で実行できます（入力→追加、編集、削除）。</span>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="badge">2</div>
+                <div>
+                  <strong>完了管理</strong>
+                  <span>完了状態を切り替えて、進捗が把握しやすくなります。</span>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="badge">3</div>
+                <div>
+                  <strong>エクスポート / インポート</strong>
+                  <span>JSONとしてバックアップ可能。端末変更やブラウザ変更でも移行がスムーズです。</span>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="badge">4</div>
+                <div>
+                  <strong>ローカル動作</strong>
+                  <span>ダウンロードしてブラウザでローカル実行。データは端末内に保存されます。</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="cap" style="margin-top:10px;">
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- What's New（追加） -->
+      <section id="whatsnew" aria-label="What's New">
+        <div class="sectionHead">
+          <h2>What's New</h2>
+        </div>
+
+        <div class="card">
+          <p style="margin-bottom:10px;">
+            こちらにアップデート内容を追加していきます（不具合修正、機能追加、UI改善など）。
+          </p>
+
+          <div class="changelog" aria-label="変更履歴">
+            <div class="logItem">
+              <div class="logDate">2025-12-31</div>
+              <div class="logBody">
+                <strong>v1.0.0をリリース</strong>
+                <span>画面イメージ枠と機能説明、更新履歴欄を追加しました。</span>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ダウンロード -->
+      <section id="download" aria-label="ダウンロード">
+        <div class="sectionHead">
+          <h2>ダウンロード</h2>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <h2 style="margin:0 0 6px;">QuickTodo（Zip）</h2>
+              <p style="margin:0;">右記ダウンロードリンクより、htmlファイルをダウンロードしてください。</p>
+            </div>
+            <div class="ctaRow">
+              <!-- 実運用では href を実ファイルURLへ差し替え -->
+              <a class="btn btnDark" href="./quicktodo.zip" download>ダウンロード（Zip）</a>
+            </div>
+          </div>
+          <p class="small" style="margin:10px 0 0;">
+          </p>
+        </div>
       </section>
 
       <footer id="policy">
@@ -612,266 +569,21 @@
           <div>
             <strong style="font-size:12px; color:var(--text);">免責 / プライバシー</strong>
             <p class="small" style="margin-top:6px;">
-              本ページのデモは端末内（localStorage）に保存され、サーバーに送信しません。
+              本ページのアプリは端末内（localStorage）に保存され、サーバーに送信しません。
               広告配信（AdSense等）を導入する場合、Cookie等が利用されることがあります。
-              具体的な文言は、利用する広告事業者のテンプレに合わせて更新してください。
-            </p>
-          </div>
-          <div>
-            <strong style="font-size:12px; color:var(--text);">運用メモ</strong>
-            <p class="small" style="margin-top:6px;">
-              AdSense審査用に、以下を用意しておくと安定します：<br>
-              ・このページ（価値が明確な説明）<br>
-              ・プライバシーポリシー / お問い合わせ（簡易でも可）<br>
-              ・利用規約（再配布・改変の扱い）
             </p>
           </div>
         </div>
         <p class="small" style="margin:12px 0 0;">
-          © <span id="year"></span> Simple Work Todo. All rights reserved.
+          © <span id="year"></span> QuickTodo. All rights reserved.
         </p>
       </footer>
     </main>
   </div>
 
   <script>
-    // ===== Smooth scroll =====
-    document.getElementById('btnScrollHowto').addEventListener('click', () => {
-      document.getElementById('howto').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    // year only
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ===== Todo Demo (localStorage) =====
-    const STORAGE_KEY = "simple_work_todo_v1";
-    const listEl = document.getElementById('list');
-    const emptyEl = document.getElementById('empty');
-    const inputEl = document.getElementById('todoInput');
-    const catEl = document.getElementById('catSelect');
-
-    const statCount = document.getElementById('statCount');
-    const statDone = document.getElementById('statDone');
-
-    const filterButtons = Array.from(document.querySelectorAll('.seg'));
-    let filter = "all";
-
-    function uid(){
-      return Math.random().toString(16).slice(2) + Date.now().toString(16);
-    }
-
-    function load(){
-      try{
-        const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : [];
-      }catch(e){
-        return [];
-      }
-    }
-    function save(items){
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-    }
-
-    function render(){
-      const items = load();
-      const doneCount = items.filter(x => x.done).length;
-
-      statCount.textContent = items.length + "件";
-      statDone.textContent = "完了 " + doneCount;
-
-      let view = items.slice();
-      if(filter === "active") view = view.filter(x => !x.done);
-      if(filter === "done") view = view.filter(x => x.done);
-
-      listEl.innerHTML = "";
-      if(view.length === 0){
-        emptyEl.style.display = "block";
-      }else{
-        emptyEl.style.display = "none";
-      }
-
-      view.forEach(item => {
-        const row = document.createElement('div');
-        row.className = "item";
-
-        const chk = document.createElement('div');
-        chk.className = "check";
-        chk.dataset.done = item.done ? "true" : "false";
-        chk.title = item.done ? "未完了に戻す" : "完了にする";
-        chk.innerHTML = item.done ? "✓" : "";
-        chk.addEventListener('click', () => toggleDone(item.id));
-
-        const mid = document.createElement('div');
-        const title = document.createElement('div');
-        title.className = "title" + (item.done ? " done" : "");
-        title.textContent = item.text;
-
-        const tag = document.createElement('span');
-        tag.className = "tag";
-        tag.textContent = item.category;
-
-        const wrap = document.createElement('div');
-        wrap.appendChild(title);
-        wrap.appendChild(tag);
-
-        mid.appendChild(wrap);
-
-        const act = document.createElement('div');
-        act.className = "actions";
-
-        const editBtn = document.createElement('button');
-        editBtn.className = "iconBtn";
-        editBtn.type = "button";
-        editBtn.textContent = "編集";
-        editBtn.addEventListener('click', () => editItem(item.id));
-
-        const delBtn = document.createElement('button');
-        delBtn.className = "iconBtn";
-        delBtn.type = "button";
-        delBtn.textContent = "削除";
-        delBtn.addEventListener('click', () => removeItem(item.id));
-
-        act.appendChild(editBtn);
-        act.appendChild(delBtn);
-
-        row.appendChild(chk);
-        row.appendChild(mid);
-        row.appendChild(act);
-
-        listEl.appendChild(row);
-      });
-    }
-
-    function addItem(text, category){
-      const items = load();
-      items.unshift({ id: uid(), text, category, done:false, createdAt: Date.now() });
-      save(items);
-      render();
-    }
-
-    function toggleDone(id){
-      const items = load();
-      const idx = items.findIndex(x => x.id === id);
-      if(idx >= 0){
-        items[idx].done = !items[idx].done;
-        save(items);
-        render();
-      }
-    }
-
-    function removeItem(id){
-      const items = load();
-      const next = items.filter(x => x.id !== id);
-      save(next);
-      render();
-    }
-
-    function editItem(id){
-      const items = load();
-      const idx = items.findIndex(x => x.id === id);
-      if(idx < 0) return;
-      const current = items[idx];
-
-      const nextText = prompt("Todoを編集", current.text);
-      if(nextText === null) return;
-      const trimmed = nextText.trim();
-      if(!trimmed){
-        alert("空のTodoは保存できません。");
-        return;
-      }
-      const nextCategory = prompt("カテゴリを編集（例：仕事 / 会議 / 連絡 / 雑務）", current.category);
-      if(nextCategory === null) return;
-
-      items[idx].text = trimmed;
-      items[idx].category = nextCategory.trim() || current.category;
-      save(items);
-      render();
-    }
-
-    // Form submit
-    document.getElementById('todoForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const text = inputEl.value.trim();
-      if(!text) return;
-      addItem(text, catEl.value);
-      inputEl.value = "";
-      inputEl.focus();
-    });
-
-    // Filter
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.setAttribute('aria-pressed','false'));
-        btn.setAttribute('aria-pressed','true');
-        filter = btn.dataset.filter;
-        render();
-      });
-    });
-
-    // Seed
-    document.getElementById('btnSeed').addEventListener('click', () => {
-      const samples = [
-        ["見積レビュー（午前中）", "仕事"],
-        ["定例の議事録を共有", "会議"],
-        ["顧客へ回答（メール）", "連絡"],
-        ["経費精算の申請", "雑務"]
-      ];
-      const items = load();
-      if(items.length > 0 && !confirm("既にTodoがあります。サンプルを追加しますか？")) return;
-      samples.forEach(s => addItem(s[0], s[1]));
-    });
-
-    // Export
-    document.getElementById('btnExport').addEventListener('click', () => {
-      const data = load();
-      const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), items: data }, null, 2)], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = "todo-backup.json";
-      a.click();
-      URL.revokeObjectURL(url);
-    });
-
-    // Import
-    document.getElementById('btnImport').addEventListener('click', async () => {
-      const input = document.createElement('input');
-      input.type = "file";
-      input.accept = "application/json";
-      input.onchange = async () => {
-        const file = input.files?.[0];
-        if(!file) return;
-        try{
-          const text = await file.text();
-          const obj = JSON.parse(text);
-          const items = Array.isArray(obj.items) ? obj.items : [];
-          if(!confirm("インポートすると現在のTodoが上書きされます。続行しますか？")) return;
-          // minimal validation
-          const cleaned = items
-            .filter(x => x && typeof x.text === "string")
-            .map(x => ({
-              id: typeof x.id === "string" ? x.id : uid(),
-              text: String(x.text).slice(0,80),
-              category: (x.category ? String(x.category) : "仕事").slice(0,24),
-              done: !!x.done,
-              createdAt: typeof x.createdAt === "number" ? x.createdAt : Date.now()
-            }));
-          save(cleaned);
-          render();
-        }catch(e){
-          alert("インポートに失敗しました。ファイル形式を確認してください。");
-        }
-      };
-      input.click();
-    });
-
-    // Reset all
-    document.getElementById('btnReset').addEventListener('click', () => {
-      if(!confirm("すべてのTodoを削除します。よろしいですか？")) return;
-      save([]);
-      render();
-    });
-
-    // Initial render
-    render();
   </script>
 </body>
 </html>
